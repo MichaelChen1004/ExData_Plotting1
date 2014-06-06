@@ -13,14 +13,14 @@ plot3 <- function() {
     # plot to png file
     png(filename = "plot3.png")
     plot(twoDdataset$date, twoDdataset$sub.m.value, 
-         type = "l", ylab = "Energy sub metering", 
+         type = "n", ylab = "Energy sub metering", 
          xlab = "")
     with(subset(twoDdataset, e.sub.metering == "sub.metering.1"), 
-         lines(date, sub.m.value, col = "black"))
+         lines(date, sub.m.value, type = "l", col = "black"))
     with(subset(twoDdataset, e.sub.metering == "sub.metering.2"), 
-         lines(date, sub.m.value, col = "red"))
+         lines(date, sub.m.value, type = "l", col = "red"))
     with(subset(twoDdataset, e.sub.metering == "sub.metering.3"), 
-         lines(date, sub.m.value, col = "blue"))
+         lines(date, sub.m.value, type = "l", col = "blue"))
     legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
            lty = 1, lwd = 1, col = c("black","red", "blue"))
     

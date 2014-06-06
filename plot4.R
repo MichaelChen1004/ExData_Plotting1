@@ -25,14 +25,14 @@ plot4 <- function() {
                         ylab = "Voltage", xlab = "datetime"))
     
     # plot on the lower left.
-    with(tidySet2, plot(date, sub.m.value, type = "l", 
+    with(tidySet2, plot(date, sub.m.value, type = "n", 
                         ylab = "Energy sub metering", xlab = ""))
     with(subset(tidySet2, e.sub.metering == "sub.metering.1"), 
-         lines(date, sub.m.value, col = "black"))
+         lines(date, sub.m.value, type = "l", col = "black"))
     with(subset(tidySet2, e.sub.metering == "sub.metering.2"), 
-         lines(date, sub.m.value, col = "red"))
+         lines(date, sub.m.value, type = "l", col = "red"))
     with(subset(tidySet2, e.sub.metering == "sub.metering.3"), 
-         lines(date, sub.m.value, col = "blue"))
+         lines(date, sub.m.value, type = "l", col = "blue"))
     legend("topright", bty = "n",
            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
            lty = 1, lwd = 1, col = c("black","red", "blue"))
